@@ -29,8 +29,6 @@ def json_exrax():
         category=[data[i]['category'] for i in range(l)]
 
         category=[*set(category)]
-        print(category)
-        print(len(category))
         # print(f"{name}\n\n{symbol}\n\n{atomic_no}\n\n{atomic_mass}")
 
         elements=[]
