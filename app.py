@@ -17,13 +17,20 @@ def json_exrax():
         data = json.load(f)
         data=data['elements']
         l=len(data)
+
+        # Data Access Section
         symbol=[data[i]['symbol'] for i in range(l)]
         name=[data[i]['name'] for i in range(l)]
-        atomic_mass=[data[i]['atomic_mass'] for i in range(l)]
+        atomic_mass=[round(data[i]['atomic_mass'],4) for i in range(l)]
         atomic_no=[data[i]['number'] for i in range(l)]
         xpos=[data[i]['xpos'] for i in range(l)]
-        ypos=[data[i]['ypos'] for i in range(l)
-        ]
+        ypos=[data[i]['ypos'] for i in range(l)]
+        cpk_hex=[data[i]['cpk-hex'] for i in range(l)]
+        category=[data[i]['category'] for i in range(l)]
+
+        category=[*set(category)]
+        print(category)
+        print(len(category))
         # print(f"{name}\n\n{symbol}\n\n{atomic_no}\n\n{atomic_mass}")
 
         elements=[]
@@ -35,6 +42,7 @@ def json_exrax():
             ele.append(atomic_mass[i])
             ele.append(xpos[i])
             ele.append(ypos[i])
+            ele.append(cpk_hex[i])
 
             elements.append(ele)
 
