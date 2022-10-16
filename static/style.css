@@ -1,0 +1,16 @@
+* {
+    margin: 4px;
+    padding: 0;
+    background: black;
+}
+
+.Periodic_table {
+    display: grid;
+    grid-template-columns: repeat(18, 70px);
+    grid-column-start: col-start 2;
+}
+
+.box {
+    border: 1px solid white;
+    color: white;
+}
