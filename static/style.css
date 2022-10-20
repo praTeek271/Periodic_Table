@@ -1,7 +1,6 @@
 * {
     margin: 4px;
-    padding: 0;
-    
+    padding: 0;   
 }
 
 :root {
@@ -16,12 +15,23 @@
     --other_non_metals:#3396cb;
     --halogens:#3396cb;
     --noble_gases:#3396cb;
+
+    --c1:#36353786;
+    --c2:#a5959ad3;
+}
+@keyframes background-pan{
+    from { background-position:0% center; }
+    to{background-position: -200% center;}
 }
 body{
-    background: black;
+    animation: background-pan 5s linear infinite;
+    background: linear-gradient(to right,var(--c1),var(--c2),var(--c1));
+    background-size: 200%;
+    overflow: hidden;
     font-family: monospace;
 }
 .Periodic_table {
+    background: transparent;
     display: grid;
     grid-template-columns: repeat(18, 79px);
     grid-column-start: col-start 2;
@@ -29,10 +39,23 @@ body{
 }
 
 .box {
-    border: 1px solid white;
-    color: white;
+    border: 3px solid #000000;
+    color: black;
     font-weight: 500;
 }
+
+.shell::backdrop {
+    background:var(--background);
+}
+
+.box:hover,.box:active,.box:focus{
+    border: 3px solid var(--background);
+}
+.select:focus,.select:active,.select:hover{
+    color: var(--background);
+}
+
+
 .atomic_no{
     font-size: 9px;
     position: absolute;
@@ -57,4 +80,10 @@ body{
     font-size: 10px;
     display: flex;
     justify-content: center;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
