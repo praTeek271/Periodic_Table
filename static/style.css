@@ -16,7 +16,7 @@
     --halogens:#3396cb;
     --noble_gases:#3396cb;
 
-    --c1:#36353786;
+    --c1:#3635379f;
     --c2:#a5959ad3;
 }
 @keyframes background-pan{
@@ -36,16 +36,27 @@ body{
     grid-template-columns: repeat(18, 79px);
     grid-column-start: col-start 2;
     padding: 4px 24px 4px 9px;
+    z-index: 1;
 }
 
 .box {
     border: 3px solid #000000;
     color: black;
     font-weight: 500;
+    z-index: 2;
 }
-
-.shell::backdrop {
-    background:var(--background);
+.output{
+    
+    background: black;
+    color: white;
+    position: absolute;
+    top: 50%;
+    width: 250px;
+    height: 250 px;  
+    left: 40%;
+    right: 50%;
+    opacity: 0;
+    z-index: 3;
 }
 
 .box:hover,.box:active,.box:focus{

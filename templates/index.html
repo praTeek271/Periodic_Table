@@ -8,22 +8,23 @@
     <title>Periodic Table</title>
 </head>
 <body>
+    <div class="container" style="display:flex; position:relative;">
     <div class="Periodic_table" id="box">
         {% for atomic_no,symbol,name,atomic_mass,xpos,ypos,cpk_hex in elements %}
-        <div class="box select {{atomic_no}}" style="grid-column: {{xpos}};grid-row:{{ypos}};--background: #{{cpk_hex}}">
+        
+        <div class="box select {{atomic_no}}" id="box" onclick="screen_on({{atomic_no}})" style="grid-column: {{xpos}};grid-row:{{ypos}};--background: #{{cpk_hex}}">
             <span class="atomic_no prevent-select select" style="--background: #{{cpk_hex}}">{{atomic_no}}</span>
             <span class="symbol prevent-select select" style="--background: #{{cpk_hex}}">{{symbol}}</span>
             <span class="name prevent-select select" style="--background: #{{cpk_hex}}">{{name}}</span>
             <span class="atomic_mass prevent-select select" style="--background: #{{cpk_hex}}">{{atomic_mass}}</span>
-            <shell>
-                <span class="elec_config prevent-select select" style="display:none;--background: #{{cpk_hex}}">elec_config</span>
-                <span class="shell_no prevent-select select" style="display:none;--background: #{{cpk_hex}}">shell_no</span>
-            </shell>
         </div>
         {% endfor %}
         <br>
-       
     </div>
-    <!-- <script src="app.js"></script> -->
+    <div class="output" id="output">
+
+    </div>
+</div>
+    <script src="static/app.js"></script>
 </body>
 </html>
