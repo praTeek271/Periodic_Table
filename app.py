@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask import render_template
 import json
-
+import flask
 app = Flask(__name__)
 
 
@@ -50,3 +50,4 @@ def json_exrax():
 
 # if __name__ == '__main__':
 #     print(json_exrax())
+    

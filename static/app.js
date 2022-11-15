@@ -1,12 +1,24 @@
 const diplay_screen=document.getElementById("output");
-var counter=0;
+const box=document.getElementById("pbox");
+var show=1;
+var hide=0;
 
 function screen_on(atomic_no) {
-  var val=counter%2;
-  console.log(val);
-  diplay_screen.style.opacity=val;
+  
+  console.log(`Showing Screen`);
+  diplay_screen.style.opacity=show;
+  box.classList.toggle('blur');
+  
+  
 
-  counter+=1;
+  // counter+=1;
   diplay_screen.innerHTML =atomic_no;
   console.log(atomic_no+"<----- : added");
+  diplay_screen.onclick=function() {
+    box.classList.toggle("blur");
+    console.log(`Disabling Screen`);
+    diplay_screen.style.opacity=hide;
+    
+    
+  };
 }

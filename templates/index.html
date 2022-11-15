@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container" style="display:flex; position:relative;">
-    <div class="Periodic_table" id="box">
+    <div class="Periodic_table" id="pbox">
         {% for atomic_no,symbol,name,atomic_mass,xpos,ypos,cpk_hex in elements %}
         
         <div class="box select {{atomic_no}}" id="box" onclick="screen_on({{atomic_no}})" style="grid-column: {{xpos}};grid-row:{{ypos}};--background: #{{cpk_hex}}">
