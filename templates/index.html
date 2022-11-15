@@ -12,7 +12,7 @@
     <div class="Periodic_table" id="pbox">
         {% for atomic_no,symbol,name,atomic_mass,xpos,ypos,cpk_hex in elements %}
         
-        <div class="box select {{atomic_no}}" id="box" onclick="screen_on({{atomic_no}})" style="grid-column: {{xpos}};grid-row:{{ypos}};--background: #{{cpk_hex}}">
+        <div class="box select {{atomic_no}}" id="box" onclick="screen_on('{{atomic_no}}','{{symbol}}','{{name}}','{{atomic_mass}}','{{xpos}}','{{ypos}}','{{cpk_hex}}')" style="grid-column: {{xpos}};grid-row:{{ypos}};--background: #{{cpk_hex}}">
             <span class="atomic_no prevent-select select" style="--background: #{{cpk_hex}}">{{atomic_no}}</span>
             <span class="symbol prevent-select select" style="--background: #{{cpk_hex}}">{{symbol}}</span>
             <span class="name prevent-select select" style="--background: #{{cpk_hex}}">{{name}}</span>
