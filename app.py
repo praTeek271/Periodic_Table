@@ -49,5 +49,6 @@ def json_exrax():
 
 
 # if __name__ == '__main__':
-#     print(json_exrax())
+#     app=Flask(__name__)
+#     app.run()
     

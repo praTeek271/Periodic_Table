@@ -9,12 +9,17 @@ function screen_on(atomic_no,symbol,name,atomic_mass,xpos,ypos,cpk_hex) {
   diplay_screen.style.opacity=show;
   box.classList.toggle('blur');
 
-  diplay_screen.innerHTML =atomic_no;
+  html_part=`${atomic_no}`;
+  diplay_screen.innerHTML =html_part;
+
   console.log(atomic_no+"<----- : added");
   diplay_screen.onclick=function() {
     box.classList.toggle("blur");
     console.log(`Disabling Screen`);
     diplay_screen.style.opacity=hide;
+    box.style.zIndex="3";
+    diplay_screen.style.zIndex="0";
+
     
     
   };
