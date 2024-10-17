@@ -1,0 +1,28 @@
+<!-- box.html -->
+<div class="element-container">
+  <div class="center-content">
+    <h2>{{atomic_no}} {{name}} ({{symbol}})</h2>
+    <model-viewer id="orbit-demo" src="{{model_3d}}" alt="3D model of {{name}}" camera-controls  auto-rotate>
+    </model-viewer>
+
+    <script>
+      // Wait for the model-viewer to load
+      document.addEventListener('DOMContentLoaded', () => {
+        const modelViewer = document.getElementById('orbit-demo');
+
+        // When the model is loaded, perform the rotation
+        modelViewer.addEventListener('model-visibility', (event) => {
+          if (event.detail.visible) {
+            // Rotate the model 90 degrees on the Z-axis
+            modelViewer.setAttribute('rotation', '0deg 0deg 90deg');
+
+            // Set a timeout to auto-rotate on the Y-axis after the initial rotation
+            setTimeout(() => {
+              modelViewer.setAttribute('auto-rotate', true); // Start auto-rotation
+            }, 1000); // Wait 1 second after the rotation before starting to auto-rotate
+          }
+        });
+      });
+    </script>
+  </div>
+</div>

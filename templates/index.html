@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/assets/css/style.css">
     <title>Periodic Table</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 </head>
+
 <body>
-    <div class="Periodic_table" id="box">
-        {% for atomic_no,symbol,name,atomic_mass,xpos,ypos,cpk_hex in elements %}
-        <div class="box" style="grid-column: {{xpos}};grid-row:{{ypos}}; ">
-            <span class="atomic_no">{{atomic_no}}</span>
-            <span class="symbol">{{symbol}}</span>
-            <span class="name">{{name}}</span>
-            <span class="atomic_mass">{{atomic_mass}}</span>
+    <div class="container" style="display:flex; position:relative;">
+        <div class="Periodic_table" id="pbox">
+            {% for atomic_no, symbol, name, atomic_mass, xpos, ypos, color, shell_config, summary, ele_conf, model_3d in
+            elements %}
+
+            <div class="box select {{atomic_no}}" id="box"
+                onclick="screen_on('{{atomic_no}}','{{symbol}}','{{name}}','{{atomic_mass}}','{{color}}','{{shell_config}}','{{summary}}','{{ele_conf}}','{{model_3d}}')"
+                style='grid-column: {{xpos}}; grid-row: {{ypos}}; --background: #{{color}}'>
+                <span class="atomic_no prevent-select select">{{atomic_no}}</span>
+                <span class="symbol prevent-select select">{{symbol}}</span>
+                <span class="name prevent-select select">{{name}}</span>
+                <span class="atomic_mass prevent-select select">{{atomic_mass | round(2) }}</span>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-        <br>
-       
+
+        <!-- <div id="pop_screen"> -->
+            <!-- Output container for 3D model in the center -->
+            <div class="output" id="output"></div>
+
+            <!-- Left Sidebar for Electron Configuration -->
+            <div class="left-sidebar" id="left-sidebar">
+                <!-- Will be dynamically filled by JS -->
+            </div>
+
+            <!-- Right Sidebar for Summary -->
+            <div class="right-sidebar" id="right-sidebar">
+                <!-- Will be dynamically filled by JS -->
+            </div>
+        <!-- </div> -->
+
     </div>
-    <!-- <script src="app.js"></script> -->
+
+    <script src="static/assets/js/app.js"></script>
+    
 </body>
+
 </html>
