@@ -35,8 +35,8 @@ Open your browser and go to `http://localhost:3000` to view the periodic table.
 
 
 ## Screenshots
-![Screenshot of the Periodic Table](static/assets/files/screenshot_02.png)
-![Screenshot of the Element Box](static/assets/files/screenshot_01.png)
+![Screenshot of the Periodic Table](static/assets/files/Screenshot_02.png)
+![Screenshot of the Element Box](static/assets/files/Screenshot_01.png)
 
 ## Contributing
 
